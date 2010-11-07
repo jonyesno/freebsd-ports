@@ -138,22 +138,21 @@ sbin/mcollectived
 %%PORTEXAMPLES%%%%EXAMPLESDIR%%/server.cfg.dist
 %%PORTEXAMPLES%%%%EXAMPLESDIR%%/ssl/PLACEHOLDER
 %%PORTEXAMPLES%%%%EXAMPLESDIR%%/ssl/clients/PLACEHOLDER
-%%DATADIR%%/mcollective/agent/discovery.rb
-%%DATADIR%%/mcollective/agent/rpcutil.ddl
-%%DATADIR%%/mcollective/agent/rpcutil.rb
-%%DATADIR%%/mcollective/audit/logfile.rb
-%%DATADIR%%/mcollective/connector/stomp.rb
-%%DATADIR%%/mcollective/facts/yaml.rb
-%%DATADIR%%/mcollective/registration/agentlist.rb
-%%DATADIR%%/mcollective/security/psk.rb
-%%DATADIR%%/mcollective/security/ssl.rb
-@dirrm %%DATADIR%%/mcollective/security
-@dirrm %%DATADIR%%/mcollective/registration
-@dirrm %%DATADIR%%/mcollective/facts
-@dirrm %%DATADIR%%/mcollective/connector
-@dirrm %%DATADIR%%/mcollective/audit
-@dirrm %%DATADIR%%/mcollective/agent
-@dirrm %%DATADIR%%/mcollective
+%%DATADIR%%/agent/discovery.rb
+%%DATADIR%%/agent/rpcutil.ddl
+%%DATADIR%%/agent/rpcutil.rb
+%%DATADIR%%/audit/logfile.rb
+%%DATADIR%%/connector/stomp.rb
+%%DATADIR%%/facts/yaml.rb
+%%DATADIR%%/registration/agentlist.rb
+%%DATADIR%%/security/psk.rb
+%%DATADIR%%/security/ssl.rb
+@dirrm %%DATADIR%%/security
+@dirrm %%DATADIR%%/registration
+@dirrm %%DATADIR%%/facts
+@dirrm %%DATADIR%%/connector
+@dirrm %%DATADIR%%/audit
+@dirrm %%DATADIR%%/agent
 @dirrm %%DATADIR%%
 %%PORTEXAMPLES%%@dirrm %%EXAMPLESDIR%%/ssl/clients
 %%PORTEXAMPLES%%@dirrm %%EXAMPLESDIR%%/ssl

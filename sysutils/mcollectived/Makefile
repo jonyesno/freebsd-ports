@@ -21,7 +21,7 @@ post-extract:
 
 do-patch:
 	${SED} -i '' -e 's:${CONFIG_PATH}:${PREFIX}${CONFIG_PATH}:' ${WRKSRC}/mcollectived.rb
-	${SED} -i '' -e 's:${LIBDIR_PATH}:${PREFIX}${LIBDIR_PATH}:' ${WRKSRC}/etc/server.cfg.dist
+	${SED} -i '' -e 's:${LIBDIR_PATH}:${PREFIX}/share:' ${WRKSRC}/etc/server.cfg.dist
 	${SED} -i '' -e 's:%%PREFIX%%:${PREFIX}:' ${WRKDIR}/mcollectived.rc
 
 do-install:
@@ -35,7 +35,7 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKDIR}/mcollectived.rc ${PREFIX}/etc/rc.d/mcollectived
 	( cd ${WRKSRC}/lib     && ${COPYTREE_SHARE} \* ${RUBY_SITELIBDIR}/ )
 	( cd ${WRKSRC}/etc     && ${COPYTREE_SHARE} \* ${EXAMPLESDIR}/ )
-	( cd ${WRKSRC}/plugins && ${COPYTREE_SHARE} \* ${DATADIR}/ )
 	( cd ${WRKSRC}/doc     && ${COPYTREE_SHARE} \* ${DOCSDIR}/ )
+	( cd ${WRKSRC}/plugins/mcollective && ${COPYTREE_SHARE} \* ${DATADIR}/ )
 
 .include <bsd.port.mk>
