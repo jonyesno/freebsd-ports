@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# PROVIDE: mcollectived
+
+. /etc/rc.subr
+
+name="mcollectived"
+rcvar=`set_rcvar`
+command="%%PREFIX%%/sbin/mcollectived"
+status_cmd="status_mcollectived"
+stop_cmd="stop_mcollectived"
+
+# mcollectived doesn't drop a pid, so this'll do for now
+stop_mcollectived() {
+  if pgrep -u root -f $command >/dev/null ; then
+    pkill -f $command
+    echo "Stopping mcollectived."
+  else
+    echo "mcollectived not running."
+  fi
+}
+
+status_mcollectived() {
+  if pgrep -u root -f $command >/dev/null ; then
+    echo "mcollectived is running."
+  else
+    echo "mcollectived is not running."
+  fi
+}
+
+load_rc_config $name
+
+run_rc_command "$1"
+
