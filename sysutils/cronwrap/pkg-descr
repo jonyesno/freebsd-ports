@@ -1,0 +1,2 @@
+Wrapper script for cron jobs to prevent overrun, control output and encourage monitoring
+https://github.com/zomo/cronwrap

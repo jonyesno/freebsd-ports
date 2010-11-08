@@ -1,0 +1,3 @@
+bin/cronwrap
+@unexec rmdir /var/log/cronwrap 2>/dev/null || echo "not removing non-empty /var/log/cronwrap"
+@unexec rm -Rf /var/run/cronwrap
