@@ -11,7 +11,11 @@ GITHASH=	0-geb3a383
 WRKHASH=	0a07402
 DISTFILES=	zomo-cronwrap-${DISTNAME}-${GITHASH}${EXTRACT_SUFX}
 WRKSRC=		${WRKDIR}/zomo-cronwrap-${WRKHASH}
+NO_BUILD=	1
 
+# lockrun isn't in the tree, so allow environment to direct us to it
+LOCAL_PORTS_DIR?= /usr/ports
+RUN_DEPENDS=	lockrun:${LOCAL_PORTS_DIR}/sysutils/lockrun
 
 do-install:
 	${MKDIR} /var/log/cronwrap
