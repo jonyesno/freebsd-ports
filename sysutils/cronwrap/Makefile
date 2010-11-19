@@ -7,6 +7,11 @@ MAINTAINER=	jon@zomo.co.uk
 COMMENT=	Wrapper script for cron jobs
 
 # TODO: this is way fragile! find better way to manage tagged github tarballs
+# Seems you have warm the composed url up first by visiting
+#   curl -I https://github.com/zomo/cronwrap/tarball/cronwrap-0.1
+#   curl -I http://nodeload.github.com/zomo/cronwrap/tarball/cronwrap-0.1
+# which is a roundabout way of saying fetch(1) isn't following the redirections
+
 GITHASH=	0-geb3a383
 WRKHASH=	0a07402
 DISTFILES=	zomo-cronwrap-${DISTNAME}-${GITHASH}${EXTRACT_SUFX}
