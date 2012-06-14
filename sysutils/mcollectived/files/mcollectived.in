@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# $FreeBSD: ports/sysutils/mcollective/files/mcollectived.in,v 1.3 2012/01/14 08:57:02 dougb Exp $
+#
+# PROVIDE: mcollectived
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# mcollectived_enable (bool):	Set to NO by default.
+#				Set it to YES to enable mcollectived.
+# mcollectived_flags (str):	Set as needed.  Empty by default.
+
+. /etc/rc.subr
+
+name="mcollectived"
+rcvar=mcollectived_enable
+
+load_rc_config "${name}"
+
+: ${mcollectived_enable="NO"}
+
+pidfile="/var/run/${name}.pid"
+command="%%PREFIX%%/sbin/${name}"
+command_args="-p $pidfile"
+procname="ruby"
+
+run_rc_command "$1"
