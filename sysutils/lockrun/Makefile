@@ -1,6 +1,6 @@
 PORTNAME=	lockrun
 PORTVERSION=	0.1
-CATEGORIES=	sysutils
+CATEGORIES=	zomo
 MASTER_SITES=	http://www.unixwiz.net/tools/
 DISTFILES=	lockrun.c
 EXTRACT_ONLY=
@@ -16,6 +16,6 @@ do-build:
 	cd ${WRKSRC} && gcc -o lockrun lockrun.c
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/lockrun /usr/local/bin/lockrun
+	${INSTALL_PROGRAM} ${WRKSRC}/lockrun ${STAGEDIR}${PREFIX}/bin/lockrun
 
 .include <bsd.port.mk>
