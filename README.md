@@ -1,4 +1,4 @@
-Miscellaneous FreeBSD port builds for things that don't have them yet
+Miscellaneous FreeBSD ports
 
 * zomo/cronwrap : https://github.com/zomo/cronwrap
 * zomo/lockrun : http://unixwiz.net/tools/lockrun.html
