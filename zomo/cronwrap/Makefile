@@ -13,7 +13,6 @@ MAINTAINER=	jon@zomo.co.uk
 
 COMMENT=	Wrapper script for cron jobs
 
-#WRKSRC=		${WRKDIR}/cronwrap-cronwrap-${PORTVERSION}
 NO_BUILD=	1
 
 RUN_DEPENDS=	lockrun:${PORTSDIR}/zomo/lockrun
@@ -24,3 +23,5 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/cronwrap ${STAGEDIR}${PREFIX}/bin
 
 .include <bsd.port.mk>
+
+# https://github.com/zomo/cronwrap/archive/cronwrap-0.1.tar.gz
