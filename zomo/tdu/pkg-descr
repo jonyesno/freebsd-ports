@@ -1,0 +1,6 @@
+tdu, a text-mode disk usage full-screen folding outline doohickey utility thingamabob
+
+tdu is a text-terminal program that displays disk space utilization in an interactive full-screen folding outline.
+Branches of the tree may be hidden or displayed, and files/directories in a branch can be sorted by filename or total space utilized.
+
+http://webonastick.com/tdu/

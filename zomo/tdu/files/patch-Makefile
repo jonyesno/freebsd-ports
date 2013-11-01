@@ -1,0 +1,24 @@
+--- Makefile.orig	2008-05-07 23:53:36.000000000 +0000
++++ Makefile	2013-11-01 00:05:17.232505192 +0000
+@@ -25,17 +25,17 @@
+ LIBS = -lncurses
+ 
+ $(program): $(OBJS)
+-	$(CC) `pkg-config --libs glib-2.0` $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
++	$(CC) `pkgconf --libs glib-2.0` $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+ 
+ .c.o:
+-	$(CC) `pkg-config --cflags glib-2.0` -Wall $(CFLAGS) -c $< -o $@
++	$(CC) `pkgconf --cflags glib-2.0` -Wall $(CFLAGS) -c $< -o $@
+ 
+ .PHONY: splint
+ splint:
+-	splint -weak -posix-lib `pkg-config --cflags glib-2.0` *.c *.h
++	splint -weak -posix-lib `pkgconf --cflags glib-2.0` *.c *.h
+ 
+ install = /usr/bin/install
+-prefix = /usr/local
++prefix = ${PREFIX}
+ 
+ .PHONY: install
+ install: $(program)
