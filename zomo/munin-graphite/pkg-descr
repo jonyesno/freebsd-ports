@@ -1,3 +1,3 @@
-lockrun - Run cron job with overrun protection
+munin-graphite.rb - A Munin-Node to Graphite bridge
 
-http://www.unixwiz.net/tools/lockrun.html
+https://github.com/adamhjk/munin-graphite/blob/master/munin-graphite.rb
