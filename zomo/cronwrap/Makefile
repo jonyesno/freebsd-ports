@@ -1,14 +1,13 @@
 PORTNAME=	cronwrap
-PORTVERSION=	0.1
+PORTVERSION=	0.2
 CATEGORIES=	zomo
 MASTER_SITES=	GH
-DISTNAME=	${GH_ACCOUNT}-${GH_PROJECT}-${PORTVERSION}-0-g${GH_COMMIT}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	zomo
 GH_PROJECT=	cronwrap
-GH_COMMIT=	eb3a383
-GH_TAGNAME=	${GH_COMMIT}
+GH_COMMIT=	8eb4e75
+GH_TAGNAME= 	cronwrap-${PORTVERSION}
 MAINTAINER=	jon@zomo.co.uk
 
 COMMENT=	Wrapper script for cron jobs
@@ -21,7 +20,8 @@ do-install:
 	${MKDIR} ${STAGEDIR}/var/log/cronwrap
 	${MKDIR} ${STAGEDIR}/var/run/cronwrap
 	${INSTALL_SCRIPT} ${WRKSRC}/cronwrap ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_SCRIPT} ${WRKSRC}/check_cronwrap ${STAGEDIR}${PREFIX}/bin
 
 .include <bsd.port.mk>
 
-# https://github.com/zomo/cronwrap/archive/cronwrap-0.1.tar.gz
+# vi:ts=8
