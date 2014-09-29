@@ -13,7 +13,7 @@ do-extract:
 	cp ${DISTDIR}/lockrun.c ${WRKSRC}
 
 do-build:
-	cd ${WRKSRC} && gcc -o lockrun lockrun.c
+	cd ${WRKSRC} && ${CC} -o lockrun lockrun.c
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/lockrun ${STAGEDIR}${PREFIX}/bin/lockrun
