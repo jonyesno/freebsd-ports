@@ -5,9 +5,7 @@ MASTER_SITES=	GH
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	zomo
-GH_PROJECT=	cronwrap
-GH_COMMIT=	14c08d8
-GH_TAGNAME= 	cronwrap-${PORTVERSION}
+GH_TAGNAME=	${PORTNAME}-${PORTVERSION}
 MAINTAINER=	jon@zomo.co.uk
 
 COMMENT=	Wrapper script for cron jobs
