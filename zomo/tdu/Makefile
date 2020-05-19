@@ -8,12 +8,10 @@ MAINTAINER=	jon@zomo.co.uk
 COMMENT=	tdu is a text-terminal program that displays disk space utilization in an interactive full-screen folding outline
 
 WRKSRC=		${WRKDIR}/${PORTNAME}
-USE_GMAKE=	1
-BUILD_DEPENDS=	pkgconf:${PORTSDIR}/devel/pkgconf
-LIB_DEPENDS=		libglib-2.0.so:${PORTSDIR}/devel/glib20
-
-MAN1=		tdu.1
-PLIST_FILES=	bin/tdu
+USES=		gmake
+USE_GNOME+=	glib20
+USES+=		gettext-runtime
+BUILD_DEPENDS=	pkgconf:devel/pkgconf
 
 do-install:
 		${INSTALL_PROGRAM} ${WRKSRC}/tdu   ${STAGEDIR}${PREFIX}/bin
