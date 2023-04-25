@@ -1,24 +1,32 @@
---- Makefile.orig	2008-05-07 23:53:36.000000000 +0000
-+++ Makefile	2013-11-01 00:05:17.232505192 +0000
-@@ -25,17 +25,17 @@
- LIBS = -lncurses
+--- Makefile.orig	2023-04-25 05:13:57.172644000 +0000
++++ Makefile	2023-04-25 05:14:18.070091000 +0000
+@@ -23,7 +23,7 @@
+ manpage = $(program).1
  
- $(program): $(OBJS)
--	$(CC) `pkg-config --libs glib-2.0` $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
-+	$(CC) `pkgconf --libs glib-2.0` $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+ VERSION = $(shell sed -n '/^\#define[ 	][ 	]*TDU_VERSION[ 	][ 	]*"/{s/^[^"]*"//;s/".*$$//;p;}' tdu.h)
+-DEBPKGS = pkg-config libglib2.0-dev libncurses5-dev gcc
++DEBPKGS = pkgconf libglib2.0-dev libncurses5-dev gcc
  
- .c.o:
--	$(CC) `pkg-config --cflags glib-2.0` -Wall $(CFLAGS) -c $< -o $@
-+	$(CC) `pkgconf --cflags glib-2.0` -Wall $(CFLAGS) -c $< -o $@
+ ###############################################################################
  
- .PHONY: splint
- splint:
--	splint -weak -posix-lib `pkg-config --cflags glib-2.0` *.c *.h
-+	splint -weak -posix-lib `pkgconf --cflags glib-2.0` *.c *.h
+@@ -39,16 +39,16 @@
+ EXTRA_LIBS =
  
- install = /usr/bin/install
--prefix = /usr/local
-+prefix = ${PREFIX}
+ # on legacy systems (old version of Debian) where libncurses5-dev
+-# isn't nicely all pkg-config'ed up.
+-ifeq (0,$(shell pkg-config --cflags ncurses >/dev/null 2>/dev/null))
++# isn't nicely all pkgconf'ed up.
++ifeq (0,$(shell pkgconf --cflags ncurses >/dev/null 2>/dev/null))
+ else
+   PKGCONFIG_PKGS = glib-2.0
+   EXTRA_CFLAGS = 
+   EXTRA_LIBS   = -lncurses
+ endif
  
- .PHONY: install
- install: $(program)
+-PKGCONFIG_CFLAGS = `pkg-config --cflags $(PKGCONFIG_PKGS)`
+-PKGCONFIG_LIBS   = `pkg-config --libs   $(PKGCONFIG_PKGS)`
++PKGCONFIG_CFLAGS = `pkgconf --cflags $(PKGCONFIG_PKGS)`
++PKGCONFIG_LIBS   = `pkgconf --libs   $(PKGCONFIG_PKGS)`
+ 
+ # Common prefix for installation directories.
+ # NOTE: This directory must exist when you start the install.
