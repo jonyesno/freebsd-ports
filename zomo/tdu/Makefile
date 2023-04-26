@@ -2,6 +2,7 @@ PORTNAME=	tdu
 DISTVERSION=	g20220312
 CATEGORIES=	zomo
 MASTER_SITES=	GH
+LICENSE=	GPLv2
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	dse
@@ -11,12 +12,9 @@ MAINTAINER=	jon@zikomo.xyz
 COMMENT=	tdu is a text-terminal program that displays disk space utilization in an interactive full-screen folding outline
 
 USES+=		gmake
-BUILD_DEPENDS=	pkgconf:${PORTSDIR}/devel/pkgconf
-LIB_DEPENDS=	libglib-2.0.so:${PORTSDIR}/devel/glib20
-WITH_DEBUG=	1
-
-MAN1=		tdu.1
-PLIST_FILES=	bin/tdu
+USES+=		gettext-runtime
+BUILD_DEPENDS=	pkgconf:devel/pkgconf
+LIB_DEPENDS=	libglib-2.0.so:devel/glib20
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/tdu   ${STAGEDIR}${PREFIX}/bin
