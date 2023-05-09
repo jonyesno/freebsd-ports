@@ -1,0 +1,9 @@
+bin/dex
+@sample etc/dex.yaml.sample
+@owner %%DEX_USER%%
+@group %%DEX_GROUP%%
+@mode 750
+@dir %%DEX_DATADIR%%
+@mode
+@group
+@owner
